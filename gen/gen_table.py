@@ -1,3 +1,6 @@
+# based on https://github.com/unicode-rs/unicode-xid/blob/master/scripts/unicode.py
+#
+# TODO: Optimize table.
 import re
 
 input_filename = "DerivedCoreProperties.txt"
@@ -8,6 +11,7 @@ re1 = re.compile("^ *([0-9A-F]+) *; *(\w+)")
 re2 = re.compile("^ *([0-9A-F]+)\.\.([0-9A-F]+) *; *(\w+)")
 
 xid_props = ["XID_Start", "XID_Continue"]
+props = {}
 
 for line in lines:
     prop = ""
@@ -22,11 +26,21 @@ for line in lines:
     else:
         range_ids = re2.match(line)
         if range_ids:
-            id_from = single_id.group(1)
-            id_to = single_id.group(2)
-            prop = single_id.group(3)
+            id_from = range_ids.group(1)
+            id_to = range_ids.group(2)
+            prop = range_ids.group(3)
             pass
         else:
             continue
 
-    print(line)
+    if prop not in xid_props:
+        continue
+
+    if prop not in props:
+        props[prop] = []
+
+    props[prop].append((id_from, id_to))
+
+
+for prop in props:
+    print(prop)

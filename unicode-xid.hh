@@ -3,14 +3,13 @@
 //
 // UTF-8 Unicode identifier XID_Start and XID_Continue validation utility.
 //
-// Based on UAX31 Default Identifier and Unicode 5.1.0
+// Based on UAX31 Default Identifier and Unicode 15.1.0
 #pragma once
 
 #include <algorithm>
 #include <cstdint>
 #include <utility>
 #include <vector>
-#include <limits>
 
 namespace unicode_xid {
 

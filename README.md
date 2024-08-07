@@ -17,7 +17,7 @@ To convert UTF-8 string to codepoint values, see `test_unicode_xid.cc`.
 
 ## Unicode version
 
-5.1.0
+15.1.0
 
 ## Generate table.
 

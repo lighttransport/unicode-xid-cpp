@@ -1,4 +1,4 @@
-// table is geneted from Unicode 5.1.0
+// table is geneted from Unicode 15.1.0
 std::vector<std::pair<int, int>> kXID_StartTable = {
   {0x41, 0x5a},
   {0x61, 0x7a},
